@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+service MusaService {
+    rpc createBloomInstance(CreateBloomInstanceRequest) returns (CreateBloomInstanceResponse);
+}
+
+message CreateBloomInstanceRequest {
+    string clientID = 1;
+}
+
+message CreateBloomInstanceResponse {
+    string instanceID = 2;
+}
