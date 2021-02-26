@@ -1,9 +1,14 @@
 import NIO
 import GRPC
+import MongoSwift
 
 public class MusaProvider: MusaServiceProvider {
     
-    public init() {}
+    let bloomDBService: BloomDBService
+    
+    public init(mongoClient: MongoClient) {
+        self.bloomDBService = BloomDBServiceMongo(mongoClient)
+    }
     
     public var interceptors: MusaServiceServerInterceptorFactoryProtocol?
     

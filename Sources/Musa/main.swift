@@ -1,13 +1,18 @@
 import GRPC
 import NIO
 import MusaCore
+import MongoSwift
 
 let group = MultiThreadedEventLoopGroup(numberOfThreads: System.coreCount)
+let mongoClient = try MongoClient("", using: group)
+
 defer {
+    try? mongoClient.syncClose()
+    cleanupMongoSwift()
     try! group.syncShutdownGracefully()
 }
 
-let provider = MusaProvider()
+let provider = MusaProvider(mongoClient: mongoClient)
 
 let server = Server.insecure(group: group)
     .withServiceProviders([provider])
