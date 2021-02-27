@@ -1,13 +1,27 @@
 syntax = "proto3";
 
 service MusaService {
-    rpc createBloomInstance(CreateBloomInstanceRequest) returns (CreateBloomInstanceResponse);
+    rpc createBloomInstance(CreateBloomInstanceRequest) returns (BloomInstanceID);
+    rpc getBloomInstanceIP(BloomInstanceID) returns (GetBloomInstanceIPResponse);
+    rpc disableBloomInstance(BloomInstanceID) returns (Void);
+    rpc enableBloomInstance(BloomInstanceID) returns (Void);
+    rpc getBloomInstanceStatus(BloomInstanceID) returns (GetBloomInstanceStatusResponse);
+}
+
+message BloomInstanceID {
+    string value = 1;
 }
 
 message CreateBloomInstanceRequest {
     string clientID = 1;
 }
 
-message CreateBloomInstanceResponse {
-    string instanceID = 2;
+message GetBloomInstanceIPResponse {
+    string ip = 2;
+}
+
+message Void {}
+
+message GetBloomInstanceStatusResponse {
+    string status = 1;
 }

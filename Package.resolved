@@ -2,6 +2,24 @@
   "object": {
     "pins": [
       {
+        "package": "async-http-client",
+        "repositoryURL": "https://github.com/swift-server/async-http-client.git",
+        "state": {
+          "branch": null,
+          "revision": "ba845ee93d6ea10671e829ebf273b6f7a0c92ef0",
+          "version": "1.2.4"
+        }
+      },
+      {
+        "package": "SwiftkubeClient",
+        "repositoryURL": "https://github.com/swiftkube/client.git",
+        "state": {
+          "branch": null,
+          "revision": "fb078c2aeba66ee2fb1be85dd5ad286e3963aab7",
+          "version": "0.6.1"
+        }
+      },
+      {
         "package": "grpc-swift",
         "repositoryURL": "https://github.com/grpc/grpc-swift.git",
         "state": {
@@ -11,48 +29,12 @@
         }
       },
       {
-        "package": "mongo-swift-driver",
-        "repositoryURL": "https://github.com/mongodb/mongo-swift-driver.git",
+        "package": "SwiftkubeModel",
+        "repositoryURL": "https://github.com/swiftkube/model.git",
         "state": {
           "branch": null,
-          "revision": "3779365017d762e371cc07e57c3b17a5d5fdc799",
-          "version": "1.1.0"
-        }
-      },
-      {
-        "package": "Nimble",
-        "repositoryURL": "https://github.com/Quick/Nimble.git",
-        "state": {
-          "branch": null,
-          "revision": "7a46a5fc86cb917f69e3daf79fcb045283d8f008",
-          "version": "8.1.2"
-        }
-      },
-      {
-        "package": "swift-bson",
-        "repositoryURL": "https://github.com/mongodb/swift-bson",
-        "state": {
-          "branch": null,
-          "revision": "8a9d60c4e684579a390621674850e8a6fa04c3ed",
-          "version": "3.0.0"
-        }
-      },
-      {
-        "package": "swift-extras-base64",
-        "repositoryURL": "https://github.com/swift-extras/swift-extras-base64",
-        "state": {
-          "branch": null,
-          "revision": "778e00dd7cc2b7970742f061cffc87dd570e6bfa",
-          "version": "0.5.0"
-        }
-      },
-      {
-        "package": "swift-extras-json",
-        "repositoryURL": "https://github.com/swift-extras/swift-extras-json",
-        "state": {
-          "branch": null,
-          "revision": "122b9454ef01bf89a4c190b8fd3717ddd0a2fbd0",
-          "version": "0.6.0"
+          "revision": "317d369e6db56383884dccaab2e2854c40ed2eb2",
+          "version": "0.2.2"
         }
       },
       {
@@ -65,8 +47,17 @@
         }
       },
       {
+        "package": "swift-metrics",
+        "repositoryURL": "https://github.com/apple/swift-metrics.git",
+        "state": {
+          "branch": null,
+          "revision": "e382458581b05839a571c578e90060fff499f101",
+          "version": "2.1.1"
+        }
+      },
+      {
         "package": "swift-nio",
-        "repositoryURL": "https://github.com/apple/swift-nio",
+        "repositoryURL": "https://github.com/apple/swift-nio.git",
         "state": {
           "branch": null,
           "revision": "6d3ca7e54e06a69d0f2612c2ce8bb8b7319085a4",
@@ -116,6 +107,15 @@
           "branch": null,
           "revision": "e1904bf5a5f79cb7e0ff68a427a53a93b652fcd1",
           "version": "1.15.0"
+        }
+      },
+      {
+        "package": "Yams",
+        "repositoryURL": "https://github.com/jpsim/Yams.git",
+        "state": {
+          "branch": null,
+          "revision": "9003d51672e516cc59297b7e96bff1dfdedcb4ea",
+          "version": "4.0.4"
         }
       }
     ]

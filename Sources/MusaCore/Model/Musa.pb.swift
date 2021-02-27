@@ -20,6 +20,18 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
+public struct BloomInstanceID {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var value: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
 public struct CreateBloomInstanceRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -32,12 +44,34 @@ public struct CreateBloomInstanceRequest {
   public init() {}
 }
 
-public struct CreateBloomInstanceResponse {
+public struct GetBloomInstanceIPResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var instanceID: String = String()
+  public var ip: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct Void {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct GetBloomInstanceStatusResponse {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var status: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -45,6 +79,38 @@ public struct CreateBloomInstanceResponse {
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
+
+extension BloomInstanceID: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "BloomInstanceID"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "value"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.value) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.value.isEmpty {
+      try visitor.visitSingularStringField(value: self.value, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: BloomInstanceID, rhs: BloomInstanceID) -> Bool {
+    if lhs.value != rhs.value {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
 
 extension CreateBloomInstanceRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = "CreateBloomInstanceRequest"
@@ -78,10 +144,10 @@ extension CreateBloomInstanceRequest: SwiftProtobuf.Message, SwiftProtobuf._Mess
   }
 }
 
-extension CreateBloomInstanceResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = "CreateBloomInstanceResponse"
+extension GetBloomInstanceIPResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "GetBloomInstanceIPResponse"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    2: .same(proto: "instanceID"),
+    2: .same(proto: "ip"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -90,21 +156,72 @@ extension CreateBloomInstanceResponse: SwiftProtobuf.Message, SwiftProtobuf._Mes
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 2: try { try decoder.decodeSingularStringField(value: &self.instanceID) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.ip) }()
       default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.instanceID.isEmpty {
-      try visitor.visitSingularStringField(value: self.instanceID, fieldNumber: 2)
+    if !self.ip.isEmpty {
+      try visitor.visitSingularStringField(value: self.ip, fieldNumber: 2)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: CreateBloomInstanceResponse, rhs: CreateBloomInstanceResponse) -> Bool {
-    if lhs.instanceID != rhs.instanceID {return false}
+  public static func ==(lhs: GetBloomInstanceIPResponse, rhs: GetBloomInstanceIPResponse) -> Bool {
+    if lhs.ip != rhs.ip {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Void: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "Void"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let _ = try decoder.nextFieldNumber() {
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Void, rhs: Void) -> Bool {
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension GetBloomInstanceStatusResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "GetBloomInstanceStatusResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "status"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.status) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.status.isEmpty {
+      try visitor.visitSingularStringField(value: self.status, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: GetBloomInstanceStatusResponse, rhs: GetBloomInstanceStatusResponse) -> Bool {
+    if lhs.status != rhs.status {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

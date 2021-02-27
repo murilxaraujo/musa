@@ -10,7 +10,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/grpc/grpc-swift.git", from: "1.0.0"),
-        .package(url: "https://github.com/mongodb/mongo-swift-driver.git", from: "1.1.0")
+        .package(name: "SwiftkubeClient", url: "https://github.com/swiftkube/client.git", from: "0.6.0")
     ],
     targets: [
         .target(name: "Musa", dependencies: [.target(name: "MusaCore")]),
@@ -18,7 +18,7 @@ let package = Package(
             name: "MusaCore",
             dependencies: [
                 .product(name: "GRPC", package: "grpc-swift"),
-                .product(name: "MongoSwift", package: "mongo-swift-driver")
+                .product(name: "SwiftkubeClient", package: "SwiftkubeClient"),
             ]),
         .testTarget(
             name: "MusaCoreTests",
